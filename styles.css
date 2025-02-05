@@ -15,3 +15,9 @@ body {
 #error-message {
   font-weight: bold;
 }
+
+#forecast-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
