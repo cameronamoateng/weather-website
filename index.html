@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,8 +30,18 @@
         <div class="card shadow-lg">
             
             <!-- APPLICATION HEADER -->
-            <header class="card-header bg-primary text-white">
+            <header class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                 <h1 class="card-title text-center mb-0">ClimaVoice</h1>
+                <div>
+                    <!-- DARK MODE TOGGLE -->
+                    <button id="dark-mode-toggle" class="btn btn-outline-light me-2" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <!-- TEMPERATURE UNIT TOGGLE -->
+                    <button id="temp-unit-toggle" class="btn btn-outline-light" aria-label="Toggle temperature unit">
+                        °C / °F
+                    </button>
+                </div>
             </header>
 
             <!-- MAIN CONTENT AREA -->

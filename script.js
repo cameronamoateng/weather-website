@@ -1,6 +1,8 @@
 // 🔑 OpenWeatherMap API Key 
 const API_KEY = "f23ee9deb4e1a7450f3157c44ed020e1"; 
 
+let currentTempCelsius = null; // To store the current temperature in Celsius
+
 // 🎯 Event Listener for "Get Weather" Button
 document.getElementById("fetch-weather").addEventListener("click", () => {
     const city = document.getElementById("location-input").value.trim(); // Get city name from input field
@@ -84,7 +86,8 @@ const fetchWeather = async (city) => {
 // ☀️ Function to Display Current Weather Data
 const displayWeather = (data, cityName) => {
     document.getElementById("location-name").textContent = cityName; // Update city name in UI
-    document.getElementById("temperature").textContent = `${data.main.temp}°C`; // Display temperature
+    currentTempCelsius = data.main.temp; // Store the temperature in Celsius
+    document.getElementById("temperature").textContent = `${currentTempCelsius}°C`; // Display temperature
     document.getElementById("weather-description").textContent = data.weather[0].description; // Show weather condition
     document.getElementById("humidity").textContent= `Humidity: ${data.main.humidity}%`; // Display humidity
     document.getElementById("feels-like").textContent = `Feels Like: ${data.main.feels_like}°C`; // Display what the weather feels like
@@ -92,9 +95,8 @@ const displayWeather = (data, cityName) => {
     document.getElementById("error-message").classList.add("d-none"); // Hide error message (if any)
 };
 
-     const updateBackground = (weatherCondition) => {
-      let backgroundUrl;
-
+const updateBackground = (weatherCondition) => {
+    let backgroundUrl;
 
     // Define a mapping of weather conditions to background images
     if (weatherCondition === "clear sky") {
@@ -115,7 +117,6 @@ const displayWeather = (data, cityName) => {
     document.body.style.backgroundSize = "cover";  // Ensures the image covers the entire screen
     document.body.style.backgroundPosition = "center";  // Center the image
 };
-
 
 // 📆 Function to Display 5-Day Weather Forecast
 const displayForecast = (data) => {
@@ -158,3 +159,26 @@ const showError = (message) => {
     errorBox.textContent = message; // Update error text
     errorBox.classList.remove("d-none"); // Show error message
 };
+
+// 🌡️ Function to Convert Celsius to Fahrenheit
+const convertCelsiusToFahrenheit = (celsius) => (celsius * 9/5) + 32;
+
+// 🌡️ Event Listener for Temperature Unit Toggle
+document.getElementById("temp-unit-toggle").addEventListener("click", () => {
+    const tempElement = document.getElementById("temperature");
+    const currentTemp = tempElement.textContent;
+    
+    if (currentTemp.includes("°C")) {
+        // Convert to Fahrenheit
+        const tempFahrenheit = convertCelsiusToFahrenheit(currentTempCelsius).toFixed(1);
+        tempElement.textContent = `${tempFahrenheit}°F`;
+    } else {
+        // Convert to Celsius
+        tempElement.textContent = `${currentTempCelsius}°C`;
+    }
+});
+
+// 🌙 Event Listener for Dark Mode Toggle
+document.getElementById("dark-mode-toggle").addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+});
