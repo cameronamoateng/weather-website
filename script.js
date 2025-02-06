@@ -86,6 +86,8 @@ const displayWeather = (data, cityName) => {
     document.getElementById("location-name").textContent = cityName; // Update city name in UI
     document.getElementById("temperature").textContent = `${data.main.temp}°C`; // Display temperature
     document.getElementById("weather-description").textContent = data.weather[0].description; // Show weather condition
+    document.getElementById("humidity").textContent= `Humidity: ${data.main.humidity}%`; // Display humidity
+    document.getElementById("feels-like").textContent = `Feels Like: ${data.main.feels_like}°C`; // Display what the weather feels like
     updateBackground(data.weather[0].description.toLowerCase());
     document.getElementById("error-message").classList.add("d-none"); // Hide error message (if any)
 };
