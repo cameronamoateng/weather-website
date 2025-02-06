@@ -132,7 +132,7 @@ const displayForecast = (data) => {
 
     // Loop through stored daily data (only first 5 days)
     Object.values(dailyData).slice(0, 5).forEach((day) => {
-        const date = new Date(day.dt_txt).toLocaleDateString("en-US", { weekday: "long" }); // Convert date to readable format
+        const date = new Date(day.dt_txt).toLocaleDateString("en-US", { weekday: "short" }); // Convert date to readable short format 
         const temp = day.main.temp; // Get temperature
         const icon = `https://openweathermap.org/img/wn/${day.weather[0].icon}.png`; // Weather icon URL
         const description = day.weather[0].description; // Weather condition
