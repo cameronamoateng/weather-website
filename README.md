@@ -3,6 +3,9 @@
 
 **ClimaVoice** is an interactive weather dashboard that provides **real-time weather updates** and a **5-day forecast** for any city worldwide. It features **voice recognition**, allowing users to search for weather information using their voice.
 
+**Live Demo** [ClimaVoice](https://meghanasrividya.github.io/weather-website/)
+
+
 ## 🚀 Features
 
 - **🌍 Real-time Weather Data** – Get live temperature, weather conditions, and more.

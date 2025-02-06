@@ -7,17 +7,17 @@
 body {
   font-family: "Arial", sans-serif;
 }
-.bg-light{
+.bg-light {
   border-radius: 50px;
 }
 .container {
-max-width: 50%;
-max-height: 50%;
-background-color: rgba(255, 255, 255, 0); 
-justify-content: center;
-align-items: center;
+  max-width: 50%;
+  max-height: 50%;
+  background-color: rgba(255, 255, 255, 0); 
+  justify-content: center;
+  align-items: center;
 }
-.card{
+.card {
   background-color: rgba(255, 255, 255, 0.5); /* Adjust the alpha value for transparency */
   max-width: 75%;
   max-height: 75%;
@@ -30,18 +30,38 @@ align-items: center;
   padding: 15px;
   border-radius: 20px;
 }
-
 .forecast-heading {
   color: #007bff;
 }
-
 #error-message {
   font-weight: bold;
 }
-
 #forecast-display {
-  font-size:smaller;
+  font-size: smaller;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+body.dark-mode .card {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+body.dark-mode .weather-info {
+  background: #333333;
+}
+body.dark-mode .forecast-heading {
+  color: #ff9800;
+}
+body.dark-mode .btn-outline-light {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+body.dark-mode .btn-outline-light:hover {
+  background-color: #ffffff;
+  color: #000000;
 }
